@@ -398,7 +398,7 @@ namespace lolivimson
                 serialize_dictionary(*_dictionary, oi);
                 break;
             case float_type:
-                serialize_float(*_number, oi);
+                serialize_float(*_float, oi);
                 break;
         }
     }
