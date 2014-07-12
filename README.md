@@ -14,6 +14,32 @@ Using in C++
 ----------------------------------------------------------------------------------------------------
 Its API is similar to [picojson](https://github.com/kazuho/picojson).
 
+```cpp:example
+lolivimson::number_t num(0);
+lolivimson::float_t flt(0.0);
+lolivimson::string_t str("");
+lolivimson::list_t list;
+lolivimson::dictionary_t dict;
+
+dict["key1"]= lolivimson::value(num);
+
+list.push_back(lolivimson::value(flt));
+list.push_back(lolivimson::value(str));
+
+dict["key2"]= lolivimson::value(list);
+
+lolivimson::value value(dict);
+
+std::cout << value.serialize() << std::endl;
+
+lolivimson::value deserialized= lolivimson::parse(value.serialize());
+
+if(deserialized.is<lolivimson::dictionary_t>())
+{
+    lolivimson::dictionary_t dict2= deserialized.get<lolivimson::dictionary_t>();
+}
+```
+
 
 Licence
 ----------------------------------------------------------------------------------------------------
