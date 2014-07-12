@@ -29,7 +29,11 @@
 #include <exception>
 #include <cmath>
 
-#define log(x) puts(x)
+#ifdef TRACE
+#  define log(x) puts(x)
+#else
+#  define log(x)
+#endif
 
 namespace
 {

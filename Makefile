@@ -1,2 +1,8 @@
+CXX=clang++
+CXXFLAGS=-std=c++11 -Wall -O2
+TARGET=bin/run-test
+SRC=t/test.cpp
+INCDIR=-I./src/
+
 test:
-	clang++ -std=c++11 -Wall -O2 -g -I./src/ -o bin/run-test t/test.cpp
+	${CXX} ${CXXFLAGS} ${INCDIR} -o ${TARGET} ${SRC}
